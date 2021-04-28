@@ -4,7 +4,7 @@
       v-model="drawer"
       :mini-variant="miniVariant"
       :clipped="clipped"
-      color="secondary"
+      color="primary"
       fixed
       app
     >
@@ -40,7 +40,7 @@
       <v-toolbar-title v-text="title" />
       <v-spacer />
       <v-btn
-        icon
+        plain
         to="/login"
       >
         <v-icon>mdi-account</v-icon>

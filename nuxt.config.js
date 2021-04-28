@@ -55,9 +55,9 @@ export default {
       dark: true,
       themes: {
         dark: {
-          primary: colors.blue.darken2,
-          accent: colors.amber,
-          secondary: colors.amber.darken2,
+          primary: colors.amber.darken2,
+          accent: colors.amber.accent4,
+          secondary: colors.amber.darken4,
           info: colors.teal.lighten1,
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,

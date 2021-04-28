@@ -1,24 +1,47 @@
 <template>
-  <v-col cols="12" sm="8" md="6">
-    <h1>Login</h1>
-    <v-form ref="form">
-      <v-text-field
-        v-model="email"
-        :rules="emailRules"
-        label="E-mail"
-        required
-      />
-      <v-text-field
-        v-model="password"
-        :rules="passwordRules"
-        :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
-        :type="showPassword ? 'text' : 'password'"
-        label="Password"
-        required
-        @click:append="showPassword = !showPassword"
-      />
-    </v-form>
-  </v-col>
+  <v-row justify="center">
+    <v-col
+      cols="12"
+      sm="10"
+      md="8"
+      lg="6"
+    >
+      <v-card class="v-card-container">
+        <v-card-text>
+          <v-text-field
+            v-model="email"
+            :rules="emailRules"
+            label="E-mail"
+            required
+          />
+          <v-text-field
+            v-model="password"
+            :rules="passwordRules"
+            :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+            :type="showPassword ? 'text' : 'password'"
+            label="Password"
+            required
+            @click:append="showPassword = !showPassword"
+          />
+          Don't have an account?
+          <router-link
+            to="/signup"
+          >
+            Sign up
+          </router-link>
+          <br>
+          <v-row justify="end">
+            <v-btn
+              to="/"
+              color="primary"
+            >
+              Login
+            </v-btn>
+          </v-row>
+        </v-card-text>
+      </v-card>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
@@ -42,3 +65,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+  .v-card-container{
+    padding: 10px;
+  }
+</style>
