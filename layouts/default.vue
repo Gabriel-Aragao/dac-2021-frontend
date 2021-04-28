@@ -80,7 +80,7 @@ export default {
       fixed: true,
       items: [
         {
-          icon: 'mdi-view-dashboard',
+          icon: 'mdi-library',
           title: 'Home',
           to: '/'
         },
@@ -90,12 +90,12 @@ export default {
           to: '/cart'
         },
         {
-          icon: 'mdi-chart-bar',
+          icon: 'mdi-library-shelves',
           title: 'Orders',
           to: '/orders'
         }
       ],
-      miniVariant: false,
+      miniVariant: true,
       right: true,
       title: 'Bookzzz'
     }
