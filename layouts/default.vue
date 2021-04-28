@@ -4,6 +4,7 @@
       v-model="drawer"
       :mini-variant="miniVariant"
       :clipped="clipped"
+      color="secondary"
       fixed
       app
     >
@@ -26,35 +27,24 @@
     </v-navigation-drawer>
     <v-app-bar
       :clipped-left="clipped"
+      class="right-padding"
       fixed
       app
     >
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-btn
         icon
         @click.stop="miniVariant = !miniVariant"
       >
         <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
       </v-btn>
-      <v-btn
-        icon
-        @click.stop="clipped = !clipped"
-      >
-        <v-icon>mdi-application</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="fixed = !fixed"
-      >
-        <v-icon>mdi-minus</v-icon>
-      </v-btn>
       <v-toolbar-title v-text="title" />
       <v-spacer />
       <v-btn
         icon
-        @click.stop="rightDrawer = !rightDrawer"
+        to="/login"
       >
-        <v-icon>mdi-menu</v-icon>
+        <v-icon>mdi-account</v-icon>
+        Login
       </v-btn>
     </v-app-bar>
     <v-main>
@@ -62,28 +52,21 @@
         <nuxt />
       </v-container>
     </v-main>
-    <v-navigation-drawer
-      v-model="rightDrawer"
-      :right="right"
-      temporary
-      fixed
-    >
-      <v-list>
-        <v-list-item @click.native="right = !right">
-          <v-list-item-action>
-            <v-icon light>
-              mdi-repeat
-            </v-icon>
-          </v-list-item-action>
-          <v-list-item-title>Switch drawer (click me)</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
     <v-footer
       :absolute="!fixed"
       app
     >
       <span>&copy; {{ new Date().getFullYear() }}</span>
+      <v-layout row wrap justify-end class="right-padding">
+        <v-btn
+          icon
+          href="https://github.com/Gabriel-Aragao/"
+          target="_blank"
+        >
+          <v-icon>mdi-github</v-icon>
+          Github
+        </v-btn>
+      </v-layout>
     </v-footer>
   </v-app>
 </template>
@@ -93,25 +76,34 @@ export default {
   data () {
     return {
       clipped: false,
-      drawer: false,
-      fixed: false,
+      drawer: true,
+      fixed: true,
       items: [
         {
-          icon: 'mdi-apps',
-          title: 'Welcome',
+          icon: 'mdi-view-dashboard',
+          title: 'Home',
           to: '/'
         },
         {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
+          icon: 'mdi-cart',
+          title: 'Cart',
+          to: '/cart'
+        },
+        {
+          icon: 'mdi-chart-bar',
+          title: 'Orders',
+          to: '/orders'
         }
       ],
       miniVariant: false,
       right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js'
+      title: 'Bookzzz'
     }
   }
 }
 </script>
+<style scoped>
+  .right-padding{
+    padding-right: 40px;
+  }
+</style>
