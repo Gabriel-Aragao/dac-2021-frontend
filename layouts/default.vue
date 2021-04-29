@@ -60,8 +60,7 @@
       <v-layout row wrap justify-end class="right-padding">
         <v-btn
           icon
-          href="https://github.com/Gabriel-Aragao/"
-          target="_blank"
+          @click="toggleTheme()"
         >
           <v-icon>mdi-github</v-icon>
           Github
@@ -98,6 +97,11 @@ export default {
       miniVariant: true,
       right: true,
       title: 'Bookzzz'
+    }
+  },
+  methods: {
+    toggleTheme() {
+        this.$vuetify.theme.dark = !this.$vuetify.theme.dark;      
     }
   }
 }
