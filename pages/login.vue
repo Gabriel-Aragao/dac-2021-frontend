@@ -27,7 +27,7 @@
           <router-link
             to="/signup"
           >
-            Sign up
+            Sign Up
           </router-link>
           <br>
           <v-row justify="end">
