@@ -39,6 +39,16 @@
       </v-btn>
       <v-toolbar-title v-text="title" />
       <v-spacer />
+      <v-spacer />
+      <v-spacer />
+      <v-spacer />
+      <v-text-field
+        label="Search"
+        append-icon="mdi-book-search"
+        class="search-field"
+        @click:append="search"
+      />
+      <v-spacer />
       <v-btn
         plain
         to="/login"
@@ -56,11 +66,18 @@
       :absolute="!fixed"
       app
     >
-      <span>&copy; {{ new Date().getFullYear() }}</span>
+      <v-btn
+        plain
+        @click="toggleTheme()"
+      >
+        <v-icon>mdi-{{ `${$vuetify.theme.dark ? 'white-balance-sunny' : 'brightness-3'}` }}</v-icon>
+        {{ `${$vuetify.theme.dark ? 'Light' : 'Dark'}` }}
+      </v-btn>
       <v-layout row wrap justify-end class="right-padding">
         <v-btn
           icon
-          @click="toggleTheme()"
+          href=""
+          target="_blank"
         >
           <v-icon>mdi-github</v-icon>
           Github
@@ -100,8 +117,11 @@ export default {
     }
   },
   methods: {
-    toggleTheme() {
-        this.$vuetify.theme.dark = !this.$vuetify.theme.dark;      
+    toggleTheme () {
+      this.$vuetify.theme.dark = !this.$vuetify.theme.dark
+    },
+    search () {
+      alert('searched')
     }
   }
 }
@@ -109,5 +129,9 @@ export default {
 <style scoped>
   .right-padding{
     padding-right: 40px;
+  }
+  .search-field{
+    margin-top: 20px;
+    width: 600px;
   }
 </style>

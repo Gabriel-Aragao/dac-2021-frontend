@@ -61,16 +61,22 @@ export default {
           info: colors.teal.lighten1,
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
-          success: colors.green.accent3
+          success: colors.green.accent3,
+          background: colors.grey.darken4,
+          vcard: colors.shades.black,
+          text: colors.shades.white
         },
-        default: {
+        light: {
           primary: colors.amber.darken2,
           accent: colors.amber.accent4,
           secondary: colors.amber.darken4,
           info: colors.teal.lighten1,
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
-          success: colors.green.accent3
+          success: colors.green.accent3,
+          background: colors.grey.lighten4,
+          vcard: colors.shades.white,
+          text: colors.shades.black
         }
       }
     }
