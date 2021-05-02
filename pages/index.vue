@@ -22,7 +22,8 @@
       <br>
       <v-pagination
         v-model="page"
-        :length="4"
+        :length="8"
+        :total-visible="7"
         circle
       />
     </v-col>

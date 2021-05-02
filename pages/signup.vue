@@ -21,6 +21,12 @@
             required
           />
           <v-text-field
+            v-model="confirmEmail"
+            :rules="confirmEmailRules"
+            label="Confirm e-mail"
+            required
+          />
+          <v-text-field
             v-model="password"
             :rules="passwordRules"
             :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
@@ -65,6 +71,7 @@ export default {
     return {
       name: '',
       email: '',
+      confirmEmail: '',
       password: '',
       confirmPassword: '',
       showPassword: false,
@@ -74,6 +81,9 @@ export default {
       ],
       emailRules: [
         v => !v || /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'E-mail must be valid'
+      ],
+      confirmEmailRules: [
+        v => !v || (this.email === this.confirmEmail) || 'Emails must match.'
       ],
       passwordRules: [
         v => !v || /^(?=.*[a-z])/.test(v) || 'Password must contains at least one lowercase character.',
