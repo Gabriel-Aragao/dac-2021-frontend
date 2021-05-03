@@ -9,33 +9,33 @@
       <v-card class="v-card-container">
         <v-card-text>
           <v-text-field
-            v-model="title"
+            v-model="bookTitle"
             :rules="titleRules"
             label="Book's title"
             required
           />
           <br>
           <v-text-field
-            v-model="subtitle"
+            v-model="bookSubtitle"
             :rules="subtitleRules"
             label="Book's subtitle"
           />
           <br>
           <v-text-field
-            v-model="description"
+            v-model="bookDescription"
             label="Book's description"
           />
           <br>
           <v-row>
             <v-text-field
-              v-model="isbn"
+              v-model="bookIsbn"
               :rules="isbnRules"
               label="Book's ISBN"
               class="width-one-third"
             />
             <v-spacer />
             <v-text-field
-              v-model.number="year"
+              v-model.number="bookYear"
               :rules="yearRules"
               type="number"
               label="Book's year"
@@ -45,7 +45,7 @@
           <br>
           <v-row>
             <v-text-field
-              v-model.number="stock"
+              v-model.number="bookStock"
               :rules="stockRules"
               type="number"
               label="Book's stock quantity"
@@ -53,7 +53,7 @@
             />
             <v-spacer />
             <v-text-field
-              v-model.number="price"
+              v-model.number="bookPrice"
               :rules="priceRules"
               type="number"
               step="0.01"
@@ -79,44 +79,44 @@
 <script>
 export default {
   props: {
-    bookTitle: {
+    title: {
       type: String,
       default: ''
     },
-    bookSubtitle: {
+    subtitle: {
       type: String,
       default: ''
     },
-    bookDescription: {
+    description: {
       type: String,
       default: ''
     },
-    bookIsbn: {
+    isbn: {
       type: String,
       default: ''
     },
-    bookYear: {
+    year: {
       type: Number,
       default: null
     },
-    bookPrice: {
+    price: {
       type: Number,
       default: null
     },
-    bookStock: {
+    stock: {
       type: Number,
       default: null
     }
   },
   data () {
     return {
-      title: this.bookTitle,
-      subtitle: this.bookSubtitle,
-      description: this.bookDescription,
-      isbn: this.bookIsbn,
-      year: this.bookYear,
-      price: this.bookPrice,
-      stock: this.bookStock,
+      bookTitle: this.title,
+      bookSubtitle: this.subtitle,
+      bookDescription: this.description,
+      bookIsbn: this.isbn,
+      bookYear: this.year,
+      bookPrice: this.price,
+      bookStock: this.stock,
       titleRules: [
         v => !v || /^(?=.{1,})/.test(v) || 'Book\'s title must contains at least 1 character.'
       ],

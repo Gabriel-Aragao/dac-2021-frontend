@@ -1,6 +1,6 @@
 <template>
   <Admin>
-    <v-layout>
+    <v-layout v-if="!edit">
       <v-col>
         <v-col class="justify-center">
           <v-layout
@@ -9,7 +9,13 @@
             align-end
             class="padding-content"
           >
-            <BookSave />
+            <BookAdmin
+              v-for="(book, i) in books"
+              :key="i"
+              :title="book.title"
+              :price="book.price"
+              :stock="book.stock"
+            />
           </v-layout>
         </v-col>
         <br>
@@ -20,26 +26,53 @@
         />
       </v-col>
     </v-layout>
+    <v-layout v-else>
+      <v-col class="justify-center">
+        <v-layout
+          row
+          wrap
+          align-end
+          class="padding-content"
+        >
+          <BookAdmin
+            :title="title"
+            :price="price"
+            :stock="stock"
+          />
+        </v-layout>
+      </v-col>
+    </v-layout>
   </Admin>
 </template>
 
 <script>
 import Admin from '~/layouts/admin.vue'
-import BookSave from '~/components/BookSave'
+import BookAdmin from '~/components/BookAdmin'
 export default {
   components: {
-    BookSave
+    BookAdmin
   },
   data () {
     return {
-      title: '',
-      subtitle: '',
-      description: '',
-      isbn: '',
-      year: 0,
-      price: 0,
-      stock: 0,
-      page: 1
+      books: [
+        {
+          title: 'Title',
+          price: 11,
+          stock: 15
+        },
+        {
+          title: 'book2',
+          price: 11.0,
+          stock: 15
+        },
+        {
+          title: 'Till',
+          price: 11,
+          stock: 15
+        }
+      ],
+      page: 1,
+      edit: false
     }
   },
   template: {
